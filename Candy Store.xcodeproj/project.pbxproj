@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1767ED1219CFAD8A00959D9D /* Candy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1767ED1119CFAD8A00959D9D /* Candy.m */; };
 		17718E9519C8CE0D004248B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17718E9419C8CE0D004248B6 /* main.m */; };
 		17718E9819C8CE0D004248B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17718E9719C8CE0D004248B6 /* AppDelegate.m */; };
 		17718E9B19C8CE0D004248B6 /* Candy_Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17718E9919C8CE0D004248B6 /* Candy_Store.xcdatamodeld */; };
@@ -16,6 +17,11 @@
 		17718EA619C8CE0D004248B6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17718EA419C8CE0D004248B6 /* LaunchScreen.xib */; };
 		17718EB219C8CE0D004248B6 /* Candy_StoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17718EB119C8CE0D004248B6 /* Candy_StoreTests.m */; };
 		17718EBD19C8DF9F004248B6 /* CandiesListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17718EBC19C8DF9F004248B6 /* CandiesListTableViewController.m */; };
+		178F2BF719CE1B2A00BB59D6 /* CandyScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 178F2BF619CE1B2A00BB59D6 /* CandyScrollViewController.m */; };
+		17C4206A19CA0D5300287F37 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C4206919CA0D5300287F37 /* MapKit.framework */; };
+		17C4206D19CA0FC200287F37 /* CandyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C4206C19CA0FC200287F37 /* CandyViewController.m */; };
+		17C4207019CA172900287F37 /* CandyMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C4206F19CA172900287F37 /* CandyMapViewController.m */; };
+		17D688C619CA487A00652DDC /* NewCandyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D688C519CA487A00652DDC /* NewCandyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1767ED1019CFAD8A00959D9D /* Candy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Candy.h; sourceTree = "<group>"; };
+		1767ED1119CFAD8A00959D9D /* Candy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Candy.m; sourceTree = "<group>"; };
 		17718E8F19C8CE0D004248B6 /* Candy Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Candy Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17718E9319C8CE0D004248B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17718E9419C8CE0D004248B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -45,6 +53,15 @@
 		17718EB119C8CE0D004248B6 /* Candy_StoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Candy_StoreTests.m; sourceTree = "<group>"; };
 		17718EBB19C8DF9F004248B6 /* CandiesListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandiesListTableViewController.h; sourceTree = "<group>"; };
 		17718EBC19C8DF9F004248B6 /* CandiesListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandiesListTableViewController.m; sourceTree = "<group>"; };
+		178F2BF519CE1B2A00BB59D6 /* CandyScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CandyScrollViewController.h; path = ../CandyScrollViewController.h; sourceTree = "<group>"; };
+		178F2BF619CE1B2A00BB59D6 /* CandyScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CandyScrollViewController.m; path = ../CandyScrollViewController.m; sourceTree = "<group>"; };
+		17C4206919CA0D5300287F37 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		17C4206B19CA0FC200287F37 /* CandyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyViewController.h; sourceTree = "<group>"; };
+		17C4206C19CA0FC200287F37 /* CandyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyViewController.m; sourceTree = "<group>"; };
+		17C4206E19CA172900287F37 /* CandyMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyMapViewController.h; sourceTree = "<group>"; };
+		17C4206F19CA172900287F37 /* CandyMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyMapViewController.m; sourceTree = "<group>"; };
+		17D688C419CA487A00652DDC /* NewCandyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewCandyViewController.h; sourceTree = "<group>"; };
+		17D688C519CA487A00652DDC /* NewCandyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCandyViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17C4206A19CA0D5300287F37 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,13 +104,24 @@
 		17718E9119C8CE0D004248B6 /* Candy Store */ = {
 			isa = PBXGroup;
 			children = (
+				17C4206919CA0D5300287F37 /* MapKit.framework */,
+				178F2BF519CE1B2A00BB59D6 /* CandyScrollViewController.h */,
+				178F2BF619CE1B2A00BB59D6 /* CandyScrollViewController.m */,
 				17718E9619C8CE0D004248B6 /* AppDelegate.h */,
 				17718E9719C8CE0D004248B6 /* AppDelegate.m */,
 				17718E9C19C8CE0D004248B6 /* ViewController.h */,
 				17718E9D19C8CE0D004248B6 /* ViewController.m */,
 				17718E9F19C8CE0D004248B6 /* Main.storyboard */,
+				17D688C419CA487A00652DDC /* NewCandyViewController.h */,
+				17D688C519CA487A00652DDC /* NewCandyViewController.m */,
+				17C4206B19CA0FC200287F37 /* CandyViewController.h */,
+				17C4206C19CA0FC200287F37 /* CandyViewController.m */,
+				17C4206E19CA172900287F37 /* CandyMapViewController.h */,
+				17C4206F19CA172900287F37 /* CandyMapViewController.m */,
 				17718EBB19C8DF9F004248B6 /* CandiesListTableViewController.h */,
 				17718EBC19C8DF9F004248B6 /* CandiesListTableViewController.m */,
+				1767ED1019CFAD8A00959D9D /* Candy.h */,
+				1767ED1119CFAD8A00959D9D /* Candy.m */,
 				17718EA219C8CE0D004248B6 /* Images.xcassets */,
 				17718EA419C8CE0D004248B6 /* LaunchScreen.xib */,
 				17718E9919C8CE0D004248B6 /* Candy_Store.xcdatamodeld */,
@@ -227,11 +256,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17C4206D19CA0FC200287F37 /* CandyViewController.m in Sources */,
+				178F2BF719CE1B2A00BB59D6 /* CandyScrollViewController.m in Sources */,
 				17718E9819C8CE0D004248B6 /* AppDelegate.m in Sources */,
+				1767ED1219CFAD8A00959D9D /* Candy.m in Sources */,
 				17718E9519C8CE0D004248B6 /* main.m in Sources */,
+				17D688C619CA487A00652DDC /* NewCandyViewController.m in Sources */,
 				17718EBD19C8DF9F004248B6 /* CandiesListTableViewController.m in Sources */,
 				17718E9E19C8CE0D004248B6 /* ViewController.m in Sources */,
 				17718E9B19C8CE0D004248B6 /* Candy_Store.xcdatamodeld in Sources */,
+				17C4207019CA172900287F37 /* CandyMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +391,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -368,6 +403,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -424,6 +460,7 @@
 				17718EB719C8CE0D004248B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17718EB819C8CE0D004248B6 /* Build configuration list for PBXNativeTarget "Candy StoreTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +469,7 @@
 				17718EBA19C8CE0D004248B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

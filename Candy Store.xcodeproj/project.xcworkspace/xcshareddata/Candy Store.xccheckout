@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1192F77E-B2C4-4933-942B-D3EC5B47FD33</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Candy Store</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6B4201F0BB86CC614C3B6D8E06AD63A94A396858</key>
+		<string>https://github.com/didihoo01/CandyStore.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Candy Store.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6B4201F0BB86CC614C3B6D8E06AD63A94A396858</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/didihoo01/CandyStore.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6B4201F0BB86CC614C3B6D8E06AD63A94A396858</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6B4201F0BB86CC614C3B6D8E06AD63A94A396858</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Candy%20Store</string>
+		</dict>
+	</array>
+</dict>
+</plist>
