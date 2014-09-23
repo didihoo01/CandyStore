@@ -77,7 +77,6 @@
         
         _candies = [candyList mutableCopy];
     }
-    
     return self;
 }
 

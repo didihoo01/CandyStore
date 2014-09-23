@@ -6,6 +6,41 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Candy Chat Table View Controller-->
+        <scene sceneID="M9f-uO-YCr">
+            <objects>
+                <tableViewController id="Iam-0s-4Tr" customClass="CandyChatTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4IM-bc-1BO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textField key="tableFooterView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap here to type" minimumFontSize="17" id="CBB-NP-9rh">
+                            <rect key="frame" x="0.0" y="-30" width="600" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chat" id="thv-gx-kZV">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="thv-gx-kZV" id="Nk3-qF-fAg">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Iam-0s-4Tr" id="oAh-GP-wMg"/>
+                            <outlet property="delegate" destination="Iam-0s-4Tr" id="pbN-wq-GFb"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="chatTextField" destination="CBB-NP-9rh" id="Yg9-Le-QcZ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MsL-8o-AJV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1984" y="-599"/>
+        </scene>
         <!--Candies List Table View Controller-->
         <scene sceneID="wmK-Cz-gZf">
             <objects>
@@ -31,6 +66,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Gob-vB-319">
+                        <barButtonItem key="leftBarButtonItem" title="Pin" id="0j8-K6-8ih">
+                            <connections>
+                                <segue destination="Iam-0s-4Tr" kind="show" identifier="connectServer" id="zpw-4R-FyE"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tfw-8Y-fj3">
                             <connections>
                                 <segue destination="Kqs-Xi-2QD" kind="show" identifier="addCandy" id="1zs-Mw-rKQ"/>
@@ -40,7 +80,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJi-9q-GCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1919" y="151"/>
+            <point key="canvasLocation" x="1952" y="255"/>
         </scene>
         <!--New Candy View Controller-->
         <scene sceneID="xVr-O8-Djj">
