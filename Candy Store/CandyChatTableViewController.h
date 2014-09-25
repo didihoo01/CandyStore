@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CandyChatTableViewController : UITableViewController <UITextFieldDelegate>
+@interface CandyChatTableViewController : UITableViewController <UITextFieldDelegate, NSURLSessionDataDelegate>
+
+
+//+(NSString*) candyChatWithJSONDictionary:(NSDictionary *)dictionary;
+
 
 @end

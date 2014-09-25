@@ -16,6 +16,7 @@
 
 @implementation CandyChatTableViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -27,7 +28,56 @@
     
     _chatTextField.delegate = self;
     
-    _chats = [NSMutableArray arrayWithObjects:@"I like Candy", @"Same", @"Yike", @"Yay", @"I like Candy", @"Same", @"Yike", @"Yay", @"I like Candy", @"Same", @"Yike", @"Yay", nil];
+    _chats = [[NSMutableArray alloc] init];
+    
+    NSURL *url = [NSURL URLWithString:@"http://10.0.17.254:3000/candyChat"];
+
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+    
+    NSMutableURLRequest *getRequest = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+    
+    [getRequest setHTTPMethod:@"GET"];
+    
+    
+    NSURLSessionDataTask *chatDownLoadTask = [urlSession dataTaskWithRequest:getRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+        NSInteger responseStatusCode = [httpResponse statusCode];
+        
+    
+        if (responseStatusCode == 200 && data)
+        {
+            
+            NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data
+                                                                      options:0 error:nil];
+            NSLog(@"%d items received", [downloadedJSON count]);
+            
+
+                for (int i = 0; i < [downloadedJSON count]; i++)
+                {
+                    [_chats addObject:downloadedJSON[i][@"candyChat"]];
+                }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+            
+            
+        }
+        
+        else {
+            // error handling
+        }
+        
+        
+    }];
+    
+    
+    [chatDownLoadTask resume];
+
+
+
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,14 +119,161 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [_chats addObject:_chatTextField.text];
-    [self.tableView reloadData];
+    
+//    [_chats addObject:_chatTextField.text];
+    
+    NSDictionary *chatDictionary = [NSDictionary dictionaryWithObject:_chatTextField.text forKey:@"candyChat"];
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://10.0.17.254:3000/candyChat"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:chatDictionary options:0 error:nil];
+    
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody: jsonData];
+    
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+    
+    NSURLSessionUploadTask *chatUploadTask = [urlSession uploadTaskWithRequest:request fromData:jsonData completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+        NSInteger responseStatusCode = [httpResponse statusCode];
+        
+        if (responseStatusCode == 200)
+        {
+            
+            
+            NSMutableURLRequest *getRequest = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+            
+            [getRequest setHTTPMethod:@"GET"];
+            
+            
+            NSURLSessionDataTask *chatDownLoadTask = [urlSession dataTaskWithRequest:getRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+                NSInteger responseStatusCode = [httpResponse statusCode];
+                
+                
+                
+                
+                if (responseStatusCode == 200 && data)
+                {
+                    
+                    NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data
+                                                                              options:0 error:nil];
+                    NSLog(@"%d items received", [downloadedJSON count]);
+                    
+                    
+                    if ([_chats count] == 0) {
+                        for (int i = 0; i < [downloadedJSON count]; i++)
+                        {
+                            [_chats addObject:downloadedJSON[i][@"candyChat"]];
+                        }
+                    }
+                    
+                    else
+                    {
+                        for (int i = 0; i < ([downloadedJSON count] - [_chats count]); i++)
+                        {
+                            [_chats addObject:downloadedJSON[[_chats count]][@"candyChat"]];
+                        }
+                    }
+
+                    
+                    
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.tableView reloadData];
+                        
+                        NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:([_chats count] - 1) inSection:0];
+                        [[self tableView] scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+                        
+                    });
+                    
+                    
+                }
+                
+                else {
+                    // error handling
+                }
+                
+                
+            }];
+            
+            
+            [chatDownLoadTask resume];
+        }
+        
+        else
+        {
+            NSLog(@"data not received");
+
+        }
+
+    }];
+    
+    [chatUploadTask resume];
+  
+//    NSMutableURLRequest *getRequest = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+//    
+//    [getRequest setHTTPMethod:@"GET"];
+//    
+//    
+//    NSURLSessionDataTask *chatDownLoadTask = [urlSession dataTaskWithRequest:getRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+//        NSInteger responseStatusCode = [httpResponse statusCode];
+//        
+//        
+//        
+//        
+//        if (responseStatusCode == 200 && data)
+//        {
+//            
+//            NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data
+//                                                                      options:0 error:nil];
+//            NSLog(@"%d items received", [downloadedJSON count]);
+//
+//
+//            for (int i = 0; i < [downloadedJSON count]; i++)
+//            {
+//                NSLog(@"%@", downloadedJSON[0][@"candyChat"]);
+//            }
+//            
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self.tableView reloadData];
+//            });
+//            
+//            
+//        }
+//        
+//        else {
+//            // error handling
+//        }
+//        
+//        
+//    }];
+//    
+//    
+//    [chatDownLoadTask resume];
+    
     
     _chatTextField.text = @"";
     
-    [textField resignFirstResponder];
+//    [textField resignFirstResponder];
     return YES;
 }
+
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    [self.chats removeObjectAtIndex:indexPath.row];
+//    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//}
+
+//+(NSString*) candyChatWithJSONDictionary:(NSDictionary *)dictionary
+//{
+//    return dictionary[@"candyChat"];;
+//}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

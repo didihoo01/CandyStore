@@ -113,11 +113,23 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSManagedObjectContext *candyContext = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    
+    
+    [candyContext deleteObject: self.candies[indexPath.row]];
+    
+    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
 
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [self.candies removeObjectAtIndex:indexPath.row];
-//    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//}
+    
+    [self.candies removeObjectAtIndex:indexPath.row];
+     
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    
+    
+}
 
 
 /*
