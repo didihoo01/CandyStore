@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Candy.h"
-
+@class Candy;
 
 @interface NewCandyViewController : UIViewController  <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
-
 
 @property (nonatomic, strong) Candy *candy;
 
